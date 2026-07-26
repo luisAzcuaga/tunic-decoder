@@ -1,0 +1,45 @@
+article#consonants-container .rune .rune-segment.upper-left {
+  height: 1px;
+  width: 20px;
+  rotate: 53.17deg;
+  transform: translate(26px, 8px);
+}
+
+article#consonants-container .rune .rune-segment.upper-middle {
+  height: 33px;
+  width: 1px;
+  transform: translate(24.6px, -0.8px);
+}
+
+article#consonants-container .rune .rune-segment.upper-right {
+  height: 1px;
+  width: 20px;
+  rotate: -53.17deg;
+  transform: translate(19px, 12px);
+}
+
+article#consonants-container .rune .rune-segment.center {
+  height: 33px;
+  width: 1px;
+  margin: auto;
+}
+
+article#consonants-container .rune .rune-segment.lower-left {
+  height: 1px;
+  width: 20px;
+  rotate: -53.17deg;
+  transform: translate(-1px, 12px);
+}
+
+article#consonants-container .rune .rune-segment.lower-middle {
+  height: 33px;
+  width: 1px;
+  transform: translate(24.6px, -1.2px);
+}
+
+article#consonants-container .rune .rune-segment.lower-right {
+  height: 1px;
+  width: 20px;
+  rotate: 53.17deg;
+  transform: translate(-8px, -32.6px);
+}

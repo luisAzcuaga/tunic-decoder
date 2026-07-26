@@ -1,0 +1,209 @@
+article#vowels-container .rune .rune-segment.upper-left {
+  height: 1px;
+  width: 41.6px;
+  rotate: -53.17deg;
+  transform: translate(-18px, 3.3px);
+}
+
+article#vowels-container .rune .rune-segment.upper-right {
+  height: 1px;
+  width: 41.6px;
+  rotate: 53.17deg;
+  transform: translate(22px, -4px);
+}
+
+article#vowels-container .rune .rune-segment.middle-left {
+  height: 33.3px;
+  width: 1px;
+}
+
+article#vowels-container .rune .rune-segment.middle-right {
+  height: 33.3px;
+  width: 1px;
+}
+
+
+
+article#vowels-container .rune .rune-segment.lower-left {
+  height: 1px;
+  width: 41.6px;
+  rotate: 53.17deg;
+  transform: translate(8px, 16px);
+}
+
+article#vowels-container .rune .rune-segment.lower-right {
+  height: 1px;
+  width: 41.6px;
+  rotate: -53.17deg;
+  transform: translate(-2px, 22px);
+}
+
+article #outer-1 {
+
+  .middle-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-2 {
+
+  .upper-right,
+  .middle-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-3 {
+
+  .upper-left,
+  .upper-right,
+  .middle-left,
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-4 {
+
+  .upper-left,
+  .upper-right,
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-5 {
+
+  .upper-left,
+  .upper-right,
+  .middle-right,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-6 {
+
+  .middle-left,
+  .middle-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+
+article #outer-7 {
+
+  .upper-right,
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-8 {
+
+  .middle-right,
+  .lower-right {
+    display: none;
+  }
+}
+
+
+article #outer-9 {
+
+  .upper-left,
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-10 {
+
+  .middle-right,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #outer-11 {
+
+  .middle-left,
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-12 {
+
+  .upper-right,
+  .middle-right,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #outer-13 {
+
+  .upper-right,
+  .middle-left,
+  .middle-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-14 {
+
+  .upper-left,
+  .middle-left,
+  .middle-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-15 {
+
+  .upper-left,
+  .upper-right,
+  .middle-left,
+  .middle-right,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #outer-16 {
+
+  .upper-left,
+  .upper-right,
+  .middle-left,
+  .middle-right,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #outer-17 {
+
+  .middle-right {
+    display: none;
+  }
+}
+
+article #outer-18 {
+
+  .upper-left,
+  .upper-right,
+  .middle-right,
+  .lower-left {
+    display: none;
+  }
+}
