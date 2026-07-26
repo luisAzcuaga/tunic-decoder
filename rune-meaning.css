@@ -1,0 +1,79 @@
+#outer-2.rune::after {
+  content: 'o';
+}
+
+#outer-4.rune::after {
+  content: 'e';
+}
+
+#outer-6.rune::after {
+  content: 'a';
+}
+
+#outer-8.rune::after {
+  content: 'u';
+}
+
+#outer-10.rune::after {
+  content: 'uo';
+}
+
+#outer-17.rune::after {
+  content: 'ou';
+}
+
+#inner-1.rune::after {
+  content: 'm';
+}
+
+#inner-2.rune::after {
+  content: 'n';
+}
+
+#inner-4.rune::after {
+  content: 'p';
+}
+
+#inner-5.rune::after {
+  content: 'v';
+}
+
+#inner-6.rune::after {
+  content: 't';
+}
+
+#inner-7.rune::after {
+  content: 'rd';
+}
+
+#inner-8.rune::after {
+  content: 'c';
+}
+
+#inner-12.rune::after {
+  content: 'f';
+}
+
+#inner-16.rune::after {
+  content: 's';
+}
+
+#inner-17.rune::after {
+  content: 'v';
+}
+
+#inner-20.rune::after {
+  content: 'j';
+}
+
+#inner-21.rune::after {
+  content: 'r';
+}
+
+#inner-23.rune::after {
+  content: 'g';
+}
+
+#inner-24.rune::after {
+  content: 'l';
+}
