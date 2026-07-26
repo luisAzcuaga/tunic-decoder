@@ -12,11 +12,13 @@
   <script src="index.js" defer></script>
 </head>
 
-<body style="background-color: black;">
-  <section
-    style="display: flex; flex-wrap:wrap; justify-content: space-around; align-items: center; flex-direction: row; margin: auto; max-width: 2000px;">
-    <article id="vowels-container">
-
+<body>
+  <section id="rune-selection-container">
+    <div id="rune-meaning"></div>
+    <div id="combined-runes"></div>
+  </section>
+  <div id="runes-container">
+    <section id="vowels-container">
       <div id="template-outer-rune" class="rune" style="display: none;">
         <div class="rune-chunk-container">
           <span class="rune-segment upper-left"></span>
@@ -321,12 +323,9 @@
         </div>
       </div>
 
-    </article>
-    <section id="rune-meaning-container" style="color: white; text-align: center; font-size: 5rem; margin-top: 1rem; display:flex; flex-direction: column; align-items: center;">
-      <div id="rune-meaning"></div>
-      <div id="combined-runes" style="display: flex; justify-content: center; align-items: center; width: 300px; height: 300px;"></div>
     </section>
-    <article id="consonants-container">
+
+    <section id="consonants-container">
       <div id="template-inner-rune" class="rune" style="display: none;">
         <div class="rune-chunk-container">
           <span class="rune-segment upper-left"></span>
@@ -751,8 +750,8 @@
         </div>
       </div>
 
-    </article>
-  </section>
+    </section>
+  </div>
 </body>
 
 </html>

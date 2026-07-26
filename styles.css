@@ -1,9 +1,93 @@
+body {
+  background-color: #16161d;
+  color: #505071"
+
+}
+
+#rune-selection-container {
+  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  height: 300px;
+  width: fit-content;
+  color: #505071;
+}
+
+#combined-runes {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  width: 52px;
+  height: 102px;
+
+  .rune {
+    margin: 0 !important;
+  }
+}
+
+#runes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  margin: auto;
+  max-width: 2000px;
+}
+
+@media (max-width: 1615px) {
+  #runes-container #consonants-container {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  #runes-container {
+    flex-direction: column;
+  }
+
+  #runes-container #vowels-container::before,
+  #runes-container #consonants-container::before {
+    top: 0 !important;
+  }
+
+  .rune {
+    margin: 50px 15px 0 !important;
+  }
+
+}
+
 #vowels-container,
 #consonants-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 800px;
+  position: relative;
+}
+
+#runes-container #vowels-container::before,
+#runes-container #consonants-container::before {
+  padding: 5px 10px;
+  color: white;
+  background-color: black;
+  justify-self: center;
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  translate: -50% -50%;
+  font-size: 30px;
+  font-family: Helvetica, sans-serif;
+}
+
+#runes-container #vowels-container::before {
+  content: "VOWELS";
+}
+
+#runes-container #consonants-container::before {
+  content: "CONSONANTS";
 }
 
 .rune {
@@ -22,18 +106,22 @@
 }
 
 .rune::after {
-  opacity: 0;
+  opacity: 0.1;
   content: '...';
   color: black;
   background-color: white;
   justify-self: center;
   position: absolute;
-  top: 50%;
+  bottom: 0%;
   left: 50%;
-  translate: -50% -50%;
-  font-size: 30px;
+  translate: -50% 120%;
+  font-size: 20px;
   font-family: Helvetica, sans-serif;
   transition: 0.3s all;
+}
+
+#combined-runes .rune::after {
+  opacity: 0 !important;
 }
 
 .rune-chunk-container {
