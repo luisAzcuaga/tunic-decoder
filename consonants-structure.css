@@ -16,6 +16,8 @@ article#consonants-container .rune .rune-segment.upper-right {
   width: 20px;
   rotate: -53.17deg;
   transform: translate(19px, 12px);
+  position: absolute;
+  top: 32px;
 }
 
 article#consonants-container .rune .rune-segment.center {
@@ -34,7 +36,7 @@ article#consonants-container .rune .rune-segment.lower-left {
 article#consonants-container .rune .rune-segment.lower-middle {
   height: 33px;
   width: 1px;
-  transform: translate(24.6px, -1.2px);
+  transform: translate(24.4px, 0.5px);
 }
 
 article#consonants-container .rune .rune-segment.lower-right {
@@ -42,4 +44,225 @@ article#consonants-container .rune .rune-segment.lower-right {
   width: 20px;
   rotate: 53.17deg;
   transform: translate(-8px, -32.6px);
+  position: absolute;
+  bottom: 0;
+}
+
+article #inner-1 {
+
+  .upper-left,
+  .upper-middle,
+  .upper-right,
+  .center,
+  .lower-middle {
+    display: none;
+  }
+}
+
+
+article #inner-2 {
+
+  .upper-middle,
+  .upper-right,
+  .center,
+  .lower-middle {
+    display: none;
+  }
+}
+
+article #inner-3 {
+  .middle {
+    display: block;
+  }
+}
+
+article #inner-4 {
+
+  .upper-left,
+  .upper-middle,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-5 {
+
+  .upper-left,
+  .upper-right,
+  .lower-left,
+  .lower-middle {
+    display: none;
+  }
+}
+
+article #inner-6 {
+
+  .upper-middle,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+
+article #inner-7 {
+
+  .upper-left,
+  .upper-right,
+  .lower-middle {
+    display: none;
+  }
+}
+
+article #inner-8 {
+
+  .upper-left,
+  .lower-left,
+  .lower-middle {
+    display: none;
+  }
+}
+
+
+article #inner-9 {
+
+  .upper-left,
+  .upper-middle,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #inner-10 {
+
+  .upper-left,
+  .upper-right,
+  .lower-middle,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-11 {
+
+  .upper-right,
+  .upper-middle,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-12 {
+
+  .upper-left,
+  .upper-middle,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-13 {
+
+  .upper-right,
+  .lower-left,
+  .lower-middle {
+    display: none;
+  }
+}
+
+article #inner-14 {
+
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-15 {
+
+  .upper-left,
+  .upper-right {
+    display: none;
+  }
+}
+
+article #inner-16 {
+
+  .upper-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-17 {
+
+  .upper-right,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #inner-18 {
+
+  .upper-middle {
+    display: none;
+  }
+}
+
+article #inner-19 {
+
+
+  .lower-middle {
+    display: none;
+  }
+}
+
+article #inner-20 {
+
+  .upper-left,
+  .upper-right,
+  .lower-left {
+    display: none;
+  }
+}
+
+article #inner-21 {
+
+  .upper-left,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-22 {
+
+  .upper-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-23 {
+
+  .upper-middle,
+  .center,
+  .lower-left,
+  .lower-middle,
+  .lower-right {
+    display: none;
+  }
+}
+
+article #inner-24 {
+
+  .upper-left,
+  .upper-right,
+  .lower-left,
+  .lower-right {
+    display: none;
+  }
 }
