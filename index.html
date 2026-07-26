@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tunic Decoder</title>
+</head>
+<style>
+  #vowels-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-around;
+    max-width: 800px;
+  }
+
+
+  .rune {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    height: 100px;
+    color: white;
+    margin: 35px;
+    border: 0.1px dotted #333;
+    position: relative;
+  }
+
+  .rune:hover::after {
+    opacity: 1;
+  }
+
+  .rune::after {
+    opacity: 0;
+    content: '...';
+    color: black;
+    background-color: white;
+    justify-self: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 30px;
+    /* border-radius: 10px; */
+    font-family: Helvetica, sans-serif;
+    transition: 0.3s all;
+  }
+
+  .rune-chunk-container {
+    height: 33.3px;
+  }
+
+  .rune-middle-chunk-container {
+    display: flex;
+    justify-content: space-between;
+    height: 33.3px
+  }
+
+  .rune-segment {
+    /* border-radius: 10px; */
+    box-shadow: 0 0 5px 2px white;
+    background-color: white;
+    display: block;
+
+  }
+
+  .rune .rune-segment.upper-left {
+    height: 1px;
+    width: 41.6px;
+    rotate: -53.17deg;
+    transform: translate(-18px, 3.3px);
+  }
+
+  .rune .rune-segment.upper-right {
+    height: 1px;
+    width: 41.6px;
+    rotate: 53.17deg;
+    transform: translate(22px, -4px);
+  }
+
+  .rune .rune-segment.middle-left {
+    height: 33.3px;
+    width: 1px;
+  }
+
+  .rune .rune-segment.middle-right {
+    height: 33.3px;
+    width: 1px;
+  }
+
+
+
+  .rune .rune-segment.lower-left {
+    height: 1px;
+    width: 41.6px;
+    rotate: 53.17deg;
+    transform: translate(8px, 16px);
+  }
+
+  .rune .rune-segment.lower-right {
+    height: 1px;
+    width: 41.6px;
+    rotate: -53.17deg;
+    transform: translate(-2px, 22px);
+  }
+
+  article #outer-1 {
+
+    .middle-right,
+    .lower-left,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-2 {
+
+    .upper-right,
+    .middle-right,
+    .lower-left,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-3 {
+
+    .upper-left,
+    .upper-right,
+    .middle-left,
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-4 {
+
+    .upper-left,
+    .upper-right,
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-5 {
+
+    .upper-left,
+    .upper-right,
+    .middle-right,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-6 {
+
+    .middle-left,
+    .middle-right,
+    .lower-left,
+    .lower-right {
+      display: none;
+    }
+  }
+
+
+  article #outer-7 {
+
+    .upper-right,
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-8 {
+
+    .middle-right,
+    .lower-right {
+      display: none;
+    }
+  }
+
+
+  article #outer-9 {
+
+    .upper-left,
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-10 {
+
+    .middle-right,
+    .lower-left {
+      display: none;
+    }
+  }
+
+  article #outer-11 {
+
+    .middle-left,
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-12 {
+
+    .upper-right,
+    .middle-right,
+    .lower-left {
+      display: none;
+    }
+  }
+
+  article #outer-13 {
+
+    .upper-right,
+    .middle-left,
+    .middle-right,
+    .lower-left,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-14 {
+
+    .upper-left,
+    .middle-left,
+    .middle-right,
+    .lower-left,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-15 {
+
+    .upper-left,
+    .upper-right,
+    .middle-left,
+    .middle-right,
+    .lower-right {
+      display: none;
+    }
+  }
+
+  article #outer-16 {
+
+    .upper-left,
+    .upper-right,
+    .middle-left,
+    .middle-right,
+    .lower-left {
+      display: none;
+    }
+  }
+
+  article #outer-17 {
+
+    .middle-right {
+      display: none;
+    }
+  }
+
+  article #outer-18 {
+
+    .upper-left,
+    .upper-right,
+    .middle-right,
+    .lower-left {
+      display: none;
+    }
+  }
+
+  #outer-2.rune::after {
+    content: 'o';
+  }
+
+  #outer-4.rune::after {
+    content: 'e';
+  }
+
+  #outer-6.rune::after {
+    content: 'a';
+  }
+
+  #outer-8.rune::after {
+    content: 'u';
+  }
+
+  #outer-10.rune::after {
+    content: 'uo';
+  }
+
+  #outer-17.rune::after {
+    content: 'ou';
+  }
+</style>
+
+<body style="background-color: black;">
+  <div id="template-outer-rune" class="rune" style="display: none;">
+    <div class="rune-chunk-container">
+      <span class="rune-segment upper-left"></span>
+      <span class="rune-segment upper-right"></span>
+    </div>
+
+    <div class="rune-middle-chunk-container">
+      <span class="rune-segment middle-left"></span>
+      <span class="rune-segment middle-right"></span>
+    </div>
+    <div class="rune-chunk-container">
+      <span class="rune-segment lower-left"></span>
+      <span class="rune-segment lower-right"></span>
+    </div>
+  </div>
+
+  <article id="vowels-container">
+    <div id="outer-1" class="rune">
+      <div class="rune-chunk-container">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-2" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-3" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-4" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-5" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-6" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-7" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-8" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-9" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-10" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-11" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-12" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-13" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-14" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-15" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-16" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-17" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+    <div id="outer-18" class="rune">
+      <div style="height: 33.3px;">
+        <span class="rune-segment upper-left"></span>
+        <span class="rune-segment upper-right"></span>
+      </div>
+
+      <div class="rune-middle-chunk-container">
+        <span class="rune-segment middle-left"></span>
+        <span class="rune-segment middle-right"></span>
+      </div>
+      <div class="rune-chunk-container">
+        <span class="rune-segment lower-left"></span>
+        <span class="rune-segment lower-right"></span>
+      </div>
+    </div>
+
+  </article>
+</body>
+
+</html>
