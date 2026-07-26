@@ -1,54 +1,54 @@
-article#consonants-container .rune .rune-segment.upper-left {
+#consonants-container .rune .rune-segment.upper-left {
   height: 1px;
-  width: 20px;
-  rotate: 53.17deg;
-  transform: translate(26px, 8px);
+  width: 20.82px;
+  rotate: 36.898deg;
+  top: 80%;
+  left: 12%;
 }
 
-article#consonants-container .rune .rune-segment.upper-middle {
-  height: 33px;
+#consonants-container .rune .rune-segment.upper-middle {
+  height: 33.3px;
   width: 1px;
-  transform: translate(24.6px, -0.8px);
+  left: 50%;
 }
 
-article#consonants-container .rune .rune-segment.upper-right {
+#consonants-container .rune .rune-segment.upper-right {
   height: 1px;
-  width: 20px;
-  rotate: -53.17deg;
-  transform: translate(19px, 12px);
-  position: absolute;
-  top: 32px;
+  width: 20.82px;
+  rotate: -36.898deg;
+  top: 80%;
+  right: 12%;
 }
 
-article#consonants-container .rune .rune-segment.center {
-  height: 33px;
+#consonants-container .rune .rune-segment.center {
+  height: 33.3px;
   width: 1px;
-  margin: auto;
+  left: 50%;
 }
 
-article#consonants-container .rune .rune-segment.lower-left {
+#consonants-container .rune .rune-segment.lower-left {
   height: 1px;
-  width: 20px;
-  rotate: -53.17deg;
-  transform: translate(-1px, 12px);
+  width: 20.82px;
+  rotate: -36.898deg;
+  bottom: 80%;
+  left: 12%;
 }
 
-article#consonants-container .rune .rune-segment.lower-middle {
-  height: 33px;
+#consonants-container .rune .rune-segment.lower-middle {
+  height: 33.3px;
   width: 1px;
-  transform: translate(24.4px, 0.5px);
+  left: 50%;
 }
 
-article#consonants-container .rune .rune-segment.lower-right {
+#consonants-container .rune .rune-segment.lower-right {
   height: 1px;
-  width: 20px;
-  rotate: 53.17deg;
-  transform: translate(-8px, -32.6px);
-  position: absolute;
-  bottom: 0;
+  width: 20.82px;
+  rotate: 36.898deg;
+  bottom: 80%;
+  right: 12%;
 }
 
-article #inner-1 {
+#inner-1 {
 
   .upper-left,
   .upper-middle,
@@ -60,7 +60,7 @@ article #inner-1 {
 }
 
 
-article #inner-2 {
+#inner-2 {
 
   .upper-middle,
   .upper-right,
@@ -70,13 +70,13 @@ article #inner-2 {
   }
 }
 
-article #inner-3 {
+#inner-3 {
   .middle {
     display: block;
   }
 }
 
-article #inner-4 {
+#inner-4 {
 
   .upper-left,
   .upper-middle,
@@ -86,7 +86,7 @@ article #inner-4 {
   }
 }
 
-article #inner-5 {
+#inner-5 {
 
   .upper-left,
   .upper-right,
@@ -96,7 +96,7 @@ article #inner-5 {
   }
 }
 
-article #inner-6 {
+#inner-6 {
 
   .upper-middle,
   .lower-left,
@@ -106,7 +106,7 @@ article #inner-6 {
 }
 
 
-article #inner-7 {
+#inner-7 {
 
   .upper-left,
   .upper-right,
@@ -115,7 +115,7 @@ article #inner-7 {
   }
 }
 
-article #inner-8 {
+#inner-8 {
 
   .upper-left,
   .lower-left,
@@ -125,7 +125,7 @@ article #inner-8 {
 }
 
 
-article #inner-9 {
+#inner-9 {
 
   .upper-left,
   .upper-middle,
@@ -134,7 +134,7 @@ article #inner-9 {
   }
 }
 
-article #inner-10 {
+#inner-10 {
 
   .upper-left,
   .upper-right,
@@ -144,7 +144,7 @@ article #inner-10 {
   }
 }
 
-article #inner-11 {
+#inner-11 {
 
   .upper-right,
   .upper-middle,
@@ -154,7 +154,7 @@ article #inner-11 {
   }
 }
 
-article #inner-12 {
+#inner-12 {
 
   .upper-left,
   .upper-middle,
@@ -163,7 +163,7 @@ article #inner-12 {
   }
 }
 
-article #inner-13 {
+#inner-13 {
 
   .upper-right,
   .lower-left,
@@ -172,7 +172,7 @@ article #inner-13 {
   }
 }
 
-article #inner-14 {
+#inner-14 {
 
   .lower-left,
   .lower-right {
@@ -180,7 +180,7 @@ article #inner-14 {
   }
 }
 
-article #inner-15 {
+#inner-15 {
 
   .upper-left,
   .upper-right {
@@ -188,7 +188,7 @@ article #inner-15 {
   }
 }
 
-article #inner-16 {
+#inner-16 {
 
   .upper-left,
   .lower-right {
@@ -196,7 +196,7 @@ article #inner-16 {
   }
 }
 
-article #inner-17 {
+#inner-17 {
 
   .upper-right,
   .lower-left {
@@ -204,14 +204,14 @@ article #inner-17 {
   }
 }
 
-article #inner-18 {
+#inner-18 {
 
   .upper-middle {
     display: none;
   }
 }
 
-article #inner-19 {
+#inner-19 {
 
 
   .lower-middle {
@@ -219,7 +219,7 @@ article #inner-19 {
   }
 }
 
-article #inner-20 {
+#inner-20 {
 
   .upper-left,
   .upper-right,
@@ -228,7 +228,7 @@ article #inner-20 {
   }
 }
 
-article #inner-21 {
+#inner-21 {
 
   .upper-left,
   .lower-left,
@@ -237,7 +237,7 @@ article #inner-21 {
   }
 }
 
-article #inner-22 {
+#inner-22 {
 
   .upper-right,
   .lower-left,
@@ -246,7 +246,7 @@ article #inner-22 {
   }
 }
 
-article #inner-23 {
+#inner-23 {
 
   .upper-middle,
   .center,
@@ -257,7 +257,7 @@ article #inner-23 {
   }
 }
 
-article #inner-24 {
+#inner-24 {
 
   .upper-left,
   .upper-right,
