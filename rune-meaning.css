@@ -1,6 +1,9 @@
 #outer-2.rune::after {
   content: 'o';
 }
+#outer-3.rune::after {
+  content: 'ei';
+}
 
 #outer-4.rune::after {
   content: 'e';
@@ -54,6 +57,9 @@
   content: 'f';
 }
 
+#inner-15.rune::after {
+  content: 'th';
+}
 #inner-16.rune::after {
   content: 's';
 }
