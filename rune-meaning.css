@@ -31,11 +31,19 @@
 }
 
 #outer-10.rune::after {
-  content: 'uor';
+  content: 'uo';
+}
+
+#outer-11.rune::after {
+  content: 'ar';
 }
 
 #outer-12.rune::after {
   content: 'i?';
+}
+
+#outer-13.rune::after {
+  content: 'ei';
 }
 
 #outer-14.rune::after {
@@ -48,6 +56,10 @@
 
 #outer-17.rune::after {
   content: 'ou?';
+}
+
+#outer-18.rune::after {
+  content: 'uer';
 }
 
 #inner-1.rune::after {
@@ -75,15 +87,23 @@
 }
 
 #inner-7.rune::after {
-  content: 'd';
+  content: 'rd';
 }
 
 #inner-8.rune::after {
   content: 'k';
 }
 
+#inner-9.rune::after {
+  content: 'gh';
+}
+
 #inner-12.rune::after {
   content: 'f';
+}
+
+#inner-14.rune::after {
+  content: 't';
 }
 
 #inner-15.rune::after {
