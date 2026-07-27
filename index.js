@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let = lastClickedRune = null;
-  let = runesClicked = 0;
+  let lastClickedRune = null;
+  let runesClicked = 0;
 
   let vowelMeaning = '';
   let consonantMeaning = '';
@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
       if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center')) {
         clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center').style.height = '16.666px';
       }
-      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left')) {
-        const clonedLeft = clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left').cloneNode(false);
-        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left').style.height = '16.666px';
+      const leftSegment = clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left');
+      if (leftSegment) {
+        const clonedLeft = leftSegment.cloneNode(false);
+        leftSegment.style.height = '16.666px';
         clonedLeft.style.height = '16.666px';
         clonedLeft.style.top = '100%';
         clonedRune.querySelector('.rune-middle-chunk-container')
