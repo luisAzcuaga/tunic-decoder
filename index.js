@@ -36,13 +36,32 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       runesClicked++;
       const clonedRune = lastClickedRune.cloneNode(true);
-      
+
       const clonedContainer = lastClickedRune.parentElement.cloneNode(false);
       clonedContainer.style.position = 'absolute';
       clonedContainer.appendChild(clonedRune);
 
       document.getElementById('combined-runes')
         .appendChild(clonedContainer);
+      
+      // shorten rune-segment center to height: 16.666px;
+      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center')) {
+        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center').style.height = '16.666px';
+      }
+      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left')) {
+        const clonedLeft = clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left').cloneNode(false);
+        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left').style.height = '16.666px';
+        clonedLeft.style.height = '16.666px';
+        clonedLeft.style.top = '100%';
+        clonedRune.querySelector('.rune-middle-chunk-container')
+          .appendChild(clonedLeft);
+      }
+      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-right')) {
+        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-right').style.height = '16.666px';
+      }
+      // add this element to .rune-middle-chunk-container
+      const horizontalRuler = `<span class="rune-segment center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
+      clonedRune.querySelector('.rune-middle-chunk-container').insertAdjacentHTML('beforeend', horizontalRuler);
     })
   });
   document.getElementById('rune-meaning').addEventListener('click', function () {
