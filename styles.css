@@ -1,7 +1,6 @@
 body {
   background-color: #16161d;
   color: #505071;
-
 }
 
 #rune-selection-container {
@@ -56,7 +55,6 @@ body {
   .rune {
     margin: 50px 15px 0 !important;
   }
-
 }
 
 #vowels-container,
@@ -134,7 +132,6 @@ body {
   justify-content: space-between;
   height: 33.3px;
   position: relative;
-
 }
 
 .rune-segment {
@@ -142,5 +139,4 @@ body {
   background-color: white;
   display: block;
   position: absolute;
-
 }

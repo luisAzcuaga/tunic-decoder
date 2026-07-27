@@ -1,6 +1,11 @@
+#outer-1.rune::after {
+  content: 'æ';
+}
+
 #outer-2.rune::after {
   content: 'o';
 }
+
 #outer-3.rune::after {
   content: 'ei';
 }
@@ -10,19 +15,39 @@
 }
 
 #outer-6.rune::after {
-  content: 'a';
+  content: 'ua';
+}
+
+#outer-7.rune::after {
+  content: 'i';
 }
 
 #outer-8.rune::after {
-  content: 'u';
+  content: 'iu';
+}
+
+#outer-9.rune::after {
+  content: 'er';
 }
 
 #outer-10.rune::after {
-  content: 'uo';
+  content: 'uor';
+}
+
+#outer-12.rune::after {
+  content: 'i?';
+}
+
+#outer-14.rune::after {
+  content: 'ai';
+}
+
+#outer-16.rune::after {
+  content: 'ao';
 }
 
 #outer-17.rune::after {
-  content: 'ou';
+  content: 'ou?';
 }
 
 #inner-1.rune::after {
@@ -31,6 +56,10 @@
 
 #inner-2.rune::after {
   content: 'n';
+}
+
+#inner-3.rune::after {
+  content: 'ng';
 }
 
 #inner-4.rune::after {
@@ -42,15 +71,15 @@
 }
 
 #inner-6.rune::after {
-  content: 't';
+  content: 'rh/t';
 }
 
 #inner-7.rune::after {
-  content: 'rd';
+  content: 'd';
 }
 
 #inner-8.rune::after {
-  content: 'c';
+  content: 'k';
 }
 
 #inner-12.rune::after {
@@ -58,26 +87,35 @@
 }
 
 #inner-15.rune::after {
-  content: 'th';
+  content: 'th/k?';
 }
+
 #inner-16.rune::after {
   content: 's';
 }
 
 #inner-17.rune::after {
-  content: 'v';
+  content: 'v?/rd?/s?';
+}
+
+#inner-18.rune::after {
+  content: 'sh';
 }
 
 #inner-20.rune::after {
-  content: 'j';
+  content: 'j?';
 }
 
 #inner-21.rune::after {
   content: 'r';
 }
 
+#inner-22.rune::after {
+  content: 'll';
+}
+
 #inner-23.rune::after {
-  content: 'g';
+  content: 'g?';
 }
 
 #inner-24.rune::after {
