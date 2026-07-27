@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   let = lastClickedRune = null;
   let = runesClicked = 0;
+
+  let vowelMeaning = '';
+  let consonantMeaning = '';
   document.querySelectorAll('.rune').forEach(function (rune) {
     rune.addEventListener('click', function (event) {
       const currentRuneMeaning = window.getComputedStyle(rune, '::after')
@@ -26,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
       lastClickedRune = rune;
+      if (rune.parentElement.id === 'vowels-container') {
+        vowelMeaning = currentRuneMeaning;
+      } else {
+        consonantMeaning = currentRuneMeaning;
+      }
       runesClicked++;
       const clonedRune = lastClickedRune.cloneNode(true);
       
@@ -36,5 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('combined-runes')
         .appendChild(clonedContainer);
     })
+  });
+  document.getElementById('rune-meaning').addEventListener('click', function () {
+    // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
+    const currentMeaning = document.getElementById('rune-meaning').innerHTML;
+    if (currentMeaning === vowelMeaning + consonantMeaning) {
+      document.getElementById('rune-meaning').innerHTML = consonantMeaning + vowelMeaning;
+    } else {
+      document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
+    }
+
   });
 });
