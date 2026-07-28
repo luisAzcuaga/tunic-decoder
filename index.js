@@ -1,9 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
-  let lastClickedRune = null;
-  let runesClicked = 0;
+let lastClickedRune = null;
+let runesClicked = 0;
 
-  let vowelMeaning = '';
-  let consonantMeaning = '';
+let vowelMeaning = '';
+let consonantMeaning = '';
+
+document.addEventListener('DOMContentLoaded', function () {
+  setupRunesListeners();
+  document.getElementById('rune-meaning').addEventListener('click', function () {
+    // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
+    const currentMeaning = document.getElementById('rune-meaning').innerHTML;
+    if (currentMeaning === vowelMeaning + consonantMeaning) {
+      document.getElementById('rune-meaning').innerHTML = consonantMeaning + vowelMeaning;
+    } else {
+      document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
+    }
+
+  });
+});
+
+function setupRunesListeners() {
   document.querySelectorAll('.rune').forEach(function (rune) {
     rune.addEventListener('click', function (event) {
       const currentRuneMeaning = window.getComputedStyle(rune, '::after')
@@ -43,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       document.getElementById('combined-runes')
         .appendChild(clonedContainer);
-      
+
       // shorten rune-segment center to height: 16.666px;
       if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center')) {
         clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center').style.height = '16.666px';
@@ -65,14 +80,4 @@ document.addEventListener('DOMContentLoaded', function () {
       clonedRune.querySelector('.rune-middle-chunk-container').insertAdjacentHTML('beforeend', horizontalRuler);
     })
   });
-  document.getElementById('rune-meaning').addEventListener('click', function () {
-    // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
-    const currentMeaning = document.getElementById('rune-meaning').innerHTML;
-    if (currentMeaning === vowelMeaning + consonantMeaning) {
-      document.getElementById('rune-meaning').innerHTML = consonantMeaning + vowelMeaning;
-    } else {
-      document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
-    }
-
-  });
-});
+};
