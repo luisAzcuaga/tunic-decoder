@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const leftSegment = clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left');
       if (leftSegment) {
         const clonedLeft = leftSegment.cloneNode(false);
-        leftSegment.style.height = '16.666px';
+        leftSegment.style.height = '33.3px';
         clonedLeft.style.height = '16.666px';
         clonedLeft.style.top = '100%';
         clonedRune.querySelector('.rune-middle-chunk-container')
