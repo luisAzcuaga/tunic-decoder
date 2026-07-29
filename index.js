@@ -28,7 +28,7 @@ const getRuneMeaning = (rune) =>
 const resetAndReplaceWith = (runeMeaning) => {
   // replaces if the new selection is from the same container.
   document.getElementById('rune-meaning').innerHTML = runeMeaning;
-  document.getElementById('combined-runes').innerHTML = '';
+  document.getElementById('resulting-runes').innerHTML = '';
   runesClicked = 0;
 }
 

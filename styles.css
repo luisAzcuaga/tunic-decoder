@@ -14,7 +14,7 @@ body {
   color: #505071;
 }
 
-#combined-runes {
+#resulting-runes {
   width: fit-content;
   height: fit-content;
   position: relative;
@@ -118,7 +118,7 @@ body {
   transition: 0.3s all;
 }
 
-#combined-runes .rune::after {
+#resulting-runes .rune::after {
   opacity: 0 !important;
 }
 
