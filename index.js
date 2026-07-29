@@ -60,8 +60,8 @@ function setupRunesListeners() {
         .appendChild(clonedRune);
 
       // does the selected rune has a center segment? if so, let's shorten it.
-      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center')) {
-        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center').style.height = '16.666px';
+      if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-center')) {
+        clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-center').style.height = '16.666px';
       }
 
       // does the selectred rune has a left segment? if so, let's split it in two, so it's looks striken through.
@@ -78,7 +78,7 @@ function setupRunesListeners() {
         clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-right').style.height = '16.666px';
       }
       // add this element to .rune-middle-chunk-container
-      const horizontalRuler = `<span class="rune-segment center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
+      const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
       clonedRune.querySelector('.rune-middle-chunk-container').insertAdjacentHTML('beforeend', horizontalRuler);
     })
   });

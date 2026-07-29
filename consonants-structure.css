@@ -6,7 +6,7 @@
   left: -5%;
 }
 
-[id^="consonant-"].rune .rune-segment.upper-middle {
+[id^="consonant-"].rune .rune-segment.upper-center {
   height: 33.3px;
   width: 1px;
   left: 50%;
@@ -20,7 +20,7 @@
   right: -5%;
 }
 
-[id^="consonant-"].rune .rune-segment.center {
+[id^="consonant-"].rune .rune-segment.middle-center {
   height: 33.3px;
   width: 1px;
   left: 50%;
@@ -51,9 +51,9 @@
 #consonant-1 {
 
   .upper-left,
-  .upper-middle,
+  .upper-center,
   .upper-right,
-  .center,
+  .middle-center,
   .lower-middle {
     display: none;
   }
@@ -62,9 +62,9 @@
 
 #consonant-2 {
 
-  .upper-middle,
+  .upper-center,
   .upper-right,
-  .center,
+  .middle-center,
   .lower-middle {
     display: none;
   }
@@ -79,7 +79,7 @@
 #consonant-4 {
 
   .upper-left,
-  .upper-middle,
+  .upper-center,
   .lower-left,
   .lower-right {
     display: none;
@@ -98,7 +98,7 @@
 
 #consonant-6 {
 
-  .upper-middle,
+  .upper-center,
   .lower-left,
   .lower-right {
     display: none;
@@ -128,7 +128,7 @@
 #consonant-9 {
 
   .upper-left,
-  .upper-middle,
+  .upper-center,
   .lower-left {
     display: none;
   }
@@ -147,7 +147,7 @@
 #consonant-11 {
 
   .upper-right,
-  .upper-middle,
+  .upper-center,
   .lower-left,
   .lower-right {
     display: none;
@@ -157,7 +157,7 @@
 #consonant-12 {
 
   .upper-left,
-  .upper-middle,
+  .upper-center,
   .lower-right {
     display: none;
   }
@@ -206,7 +206,7 @@
 
 #consonant-18 {
 
-  .upper-middle {
+  .upper-center {
     display: none;
   }
 }
@@ -248,8 +248,8 @@
 
 #consonant-23 {
 
-  .upper-middle,
-  .center,
+  .upper-center,
+  .middle-center,
   .lower-left,
   .lower-middle,
   .lower-right {
