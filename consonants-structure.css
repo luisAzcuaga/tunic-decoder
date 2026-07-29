@@ -48,6 +48,10 @@
   right: -5%;
 }
 
+[id^="consonant-"] .rune-segment.middle-center.shortened {
+  height: 16.666px !important;
+}
+
 #consonant-1 {
 
   .upper-left,
@@ -58,7 +62,6 @@
     display: none;
   }
 }
-
 
 #consonant-2 {
 
@@ -105,7 +108,6 @@
   }
 }
 
-
 #consonant-7 {
 
   .upper-left,
@@ -123,7 +125,6 @@
     display: none;
   }
 }
-
 
 #consonant-9 {
 

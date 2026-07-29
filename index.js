@@ -63,17 +63,15 @@ function setupRunesListeners() {
       // We always skip middle-right because is never usen by any rune.
       if (clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center')) {
         // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
-        clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center').style.height = '16.666px';
+        clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center').classList.add('shortened');
       }
 
       // The selectred rune is a vowel with a middle-left segment? if so, let's split it in two, so it's looks striken through.
       const middleLeftSegment = clonedRune.querySelector('[id^=vowel-] .rune-segment.middle-left');
       if (middleLeftSegment) {
         const middleLeftClonnedSegment = middleLeftSegment.cloneNode(false);
-        middleLeftSegment.style.height = '33.3px';
-
-        middleLeftClonnedSegment.style.height = '16.666px';
-        middleLeftClonnedSegment.style.top = '100%';
+        middleLeftSegment.classList.add('shortened');
+        middleLeftClonnedSegment.classList.add('shortened-tip');
         middleLeftSegment.parentElement.appendChild(middleLeftClonnedSegment);
       }
 
