@@ -34,8 +34,15 @@ const resetAndReplaceWith = (runeMeaning) => {
 
 function mergeRunes(clonedRune) {
   clonedRune.style.position = 'absolute';
-  document.getElementById('resulting-runes')
-    .appendChild(clonedRune);
+  const clonedRuneBaseId = clonedRune.id.replace(/\d+/g, '');
+  const lastSelectedOfSameType = document.getElementById('resulting-runes')
+    .querySelector(`[id^="${clonedRuneBaseId}"]`)
+  // replace if there is already a rune of the same parent
+  if (lastSelectedOfSameType) {
+    lastSelectedOfSameType.replaceWith(clonedRune);
+  } else {
+    document.getElementById('resulting-runes').appendChild(clonedRune);
+  }
 
   // in this next section we shorten middle left or middle center segments.
   // We always skip middle-right because is never usen by any rune.
@@ -65,20 +72,16 @@ function setupRunesListeners() {
       const currentRuneMeaning = getRuneMeaning(currentRune);
       if (currentRuneMeaning === '...') return;
 
-      if (currentRune.parentElement.id === lastClickedRune?.parentElement?.id || runesClicked >= 2) {
-        resetAndReplaceWith(currentRuneMeaning);
+      // append to inner html if the rune is from a different container
+      // vowels go first
+      const formerMeaning = document.getElementById('rune-meaning').innerHTML;
+      if (currentRune.parentElement.id === 'consonants-container') {
+        // If consonant is selected after a vowel, prepend the consonant.
+        document.getElementById('rune-meaning').innerHTML = currentRuneMeaning +
+          formerMeaning;
       } else {
-        // append to inner html if the rune is from a different container
-        // vowels go first
-        const formerMeaning = document.getElementById('rune-meaning').innerHTML;
-        if (currentRune.parentElement.id === 'consonants-container') {
-          // If consonant is selected after a vowel, prepend the consonant.
-          document.getElementById('rune-meaning').innerHTML = currentRuneMeaning +
-            formerMeaning;
-        } else {
-          // If vowel is selected after, simply append.
-          document.getElementById('rune-meaning').innerHTML += currentRuneMeaning;
-        }
+        // If vowel is selected after, simply append.
+        document.getElementById('rune-meaning').innerHTML += currentRuneMeaning;
       }
       if (currentRune.id.startsWith('vowel-')) {
         vowelMeaning = currentRuneMeaning;
