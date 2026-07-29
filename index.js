@@ -1,5 +1,3 @@
-let lastClickedRune = null;
-let runesClicked = 0;
 
 let vowelMeaning = '';
 let consonantMeaning = '';
@@ -29,7 +27,7 @@ const resetAndReplaceWith = (runeMeaning) => {
   // replaces if the new selection is from the same container.
   document.getElementById('rune-meaning').innerHTML = runeMeaning;
   document.getElementById('resulting-runes').innerHTML = '';
-  runesClicked = 0;
+  // runesClicked = 0;
 }
 
 function mergeRunes(clonedRune) {
@@ -87,8 +85,6 @@ function setupRunesListeners() {
       } else {
         consonantMeaning = currentRuneMeaning;
       }
-      runesClicked++;
-      lastClickedRune = currentRune;
       mergeRunes(currentRune.cloneNode(true));
     });
   });
