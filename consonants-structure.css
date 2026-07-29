@@ -1,4 +1,4 @@
-#consonants-container .rune .rune-segment.upper-left {
+[id^="consonant-"].rune .rune-segment.upper-left {
   height: 1px;
   width: 30.04px;
   rotate: 33.689deg;
@@ -6,13 +6,13 @@
   left: -5%;
 }
 
-#consonants-container .rune .rune-segment.upper-middle {
+[id^="consonant-"].rune .rune-segment.upper-middle {
   height: 33.3px;
   width: 1px;
   left: 50%;
 }
 
-#consonants-container .rune .rune-segment.upper-right {
+[id^="consonant-"].rune .rune-segment.upper-right {
   height: 1px;
   width: 30.04px;
   rotate: -33.689deg;
@@ -20,13 +20,13 @@
   right: -5%;
 }
 
-#consonants-container .rune .rune-segment.center {
+[id^="consonant-"].rune .rune-segment.center {
   height: 33.3px;
   width: 1px;
   left: 50%;
 }
 
-#consonants-container .rune .rune-segment.lower-left {
+[id^="consonant-"].rune .rune-segment.lower-left {
   height: 1px;
   width: 30.04px;
   rotate: -33.689deg;
@@ -34,13 +34,13 @@
   left: -5%;
 }
 
-#consonants-container .rune .rune-segment.lower-middle {
+[id^="consonant-"].rune .rune-segment.lower-middle {
   height: 33.3px;
   width: 1px;
   left: 50%;
 }
 
-#consonants-container .rune .rune-segment.lower-right {
+[id^="consonant-"].rune .rune-segment.lower-right {
   height: 1px;
   width: 30.04px;
   rotate: 33.689deg;

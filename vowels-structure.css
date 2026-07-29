@@ -1,4 +1,4 @@
-#vowels-container .rune .rune-segment.upper-left {
+[id^="vowel-"].rune .rune-segment.upper-left {
   height: 1px;
   width: 30.04px;
   rotate: -33.689deg;
@@ -6,7 +6,7 @@
   left: -5%;
 }
 
-#vowels-container .rune .rune-segment.upper-right {
+[id^="vowel-"].rune .rune-segment.upper-right {
   height: 1px;
   width: 30.04px;
   rotate: 33.689deg;
@@ -14,14 +14,14 @@
   right: -5%;
 }
 
-#vowels-container .rune .rune-segment.middle-left {
+[id^="vowel-"].rune .rune-segment.middle-left {
   height: calc(33.3px + 16.666px + 16.666px);
   width: 1px;
   top: -50%;
   left: 0;
 }
 
-#vowels-container .rune .rune-segment.middle-right {
+[id^="vowel-"].rune .rune-segment.middle-right {
   /* it's never used though */
   height: calc(33.3px + 16.666px + 16.666px);
   width: 1px;
@@ -31,7 +31,7 @@
 
 
 
-#vowels-container .rune .rune-segment.lower-left {
+[id^="vowel-"].rune .rune-segment.lower-left {
   height: 1px;
   width: 30.04px;
   rotate: 33.689deg;
@@ -39,7 +39,7 @@
   left: -5%;
 }
 
-#vowels-container .rune .rune-segment.lower-right {
+[id^="vowel-"].rune .rune-segment.lower-right {
   height: 1px;
   width: 30.04px;
   rotate: -33.689deg;
