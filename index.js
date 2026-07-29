@@ -32,6 +32,33 @@ const resetAndReplaceWith = (runeMeaning) => {
   runesClicked = 0;
 }
 
+function mergeRunes(clonedRune) {
+  clonedRune.style.position = 'absolute';
+  document.getElementById('resulting-runes')
+    .appendChild(clonedRune);
+
+  // in this next section we shorten middle left or middle center segments.
+  // We always skip middle-right because is never usen by any rune.
+  if (clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center')) {
+    // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
+    clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center').classList.add('shortened');
+  }
+
+  // The selectred rune is a vowel with a middle-left segment? if so, let's split it in two, so it's looks striken through.
+  const middleLeftSegment = clonedRune.querySelector('[id^=vowel-] .rune-segment.middle-left');
+  if (middleLeftSegment) {
+    const middleLeftClonnedSegment = middleLeftSegment.cloneNode(false);
+    middleLeftSegment.classList.add('shortened');
+    middleLeftClonnedSegment.classList.add('shortened-tip');
+    middleLeftSegment.parentElement.appendChild(middleLeftClonnedSegment);
+  }
+
+  // This block adds the horizontal strike through segment.
+  const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
+  clonedRune.querySelector('.rune-middle-chunk-container')
+    .insertAdjacentHTML('beforeend', horizontalRuler);
+};
+
 function setupRunesListeners() {
   document.querySelectorAll('.rune').forEach(function (currentRune) {
     currentRune.addEventListener('click', function () {
@@ -59,32 +86,8 @@ function setupRunesListeners() {
         consonantMeaning = currentRuneMeaning;
       }
       runesClicked++;
-      const clonedRune = currentRune.cloneNode(true);
       lastClickedRune = currentRune;
-
-      clonedRune.style.position = 'absolute';
-      document.getElementById('combined-runes')
-        .appendChild(clonedRune);
-
-      // in this next section we shorten middle left or middle center segments.
-      // We always skip middle-right because is never usen by any rune.
-      if (clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center')) {
-        // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
-        clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center').classList.add('shortened');
-      }
-
-      // The selectred rune is a vowel with a middle-left segment? if so, let's split it in two, so it's looks striken through.
-      const middleLeftSegment = clonedRune.querySelector('[id^=vowel-] .rune-segment.middle-left');
-      if (middleLeftSegment) {
-        const middleLeftClonnedSegment = middleLeftSegment.cloneNode(false);
-        middleLeftSegment.classList.add('shortened');
-        middleLeftClonnedSegment.classList.add('shortened-tip');
-        middleLeftSegment.parentElement.appendChild(middleLeftClonnedSegment);
-      }
-
-      // This block adds the horizontal strike through segment.
-      const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
-      clonedRune.querySelector('.rune-middle-chunk-container').insertAdjacentHTML('beforeend', horizontalRuler);
-    })
+      mergeRunes(currentRune.cloneNode(true));
+    });
   });
 };
