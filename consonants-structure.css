@@ -48,7 +48,7 @@
   right: -5%;
 }
 
-#inner-1 {
+#consonant-1 {
 
   .upper-left,
   .upper-middle,
@@ -60,7 +60,7 @@
 }
 
 
-#inner-2 {
+#consonant-2 {
 
   .upper-middle,
   .upper-right,
@@ -70,13 +70,13 @@
   }
 }
 
-#inner-3 {
+#consonant-3 {
   .middle {
     display: block;
   }
 }
 
-#inner-4 {
+#consonant-4 {
 
   .upper-left,
   .upper-middle,
@@ -86,7 +86,7 @@
   }
 }
 
-#inner-5 {
+#consonant-5 {
 
   .upper-left,
   .upper-right,
@@ -96,7 +96,7 @@
   }
 }
 
-#inner-6 {
+#consonant-6 {
 
   .upper-middle,
   .lower-left,
@@ -106,7 +106,7 @@
 }
 
 
-#inner-7 {
+#consonant-7 {
 
   .upper-left,
   .upper-right,
@@ -115,7 +115,7 @@
   }
 }
 
-#inner-8 {
+#consonant-8 {
 
   .upper-left,
   .lower-left,
@@ -125,7 +125,7 @@
 }
 
 
-#inner-9 {
+#consonant-9 {
 
   .upper-left,
   .upper-middle,
@@ -134,7 +134,7 @@
   }
 }
 
-#inner-10 {
+#consonant-10 {
 
   .upper-left,
   .upper-right,
@@ -144,7 +144,7 @@
   }
 }
 
-#inner-11 {
+#consonant-11 {
 
   .upper-right,
   .upper-middle,
@@ -154,7 +154,7 @@
   }
 }
 
-#inner-12 {
+#consonant-12 {
 
   .upper-left,
   .upper-middle,
@@ -163,7 +163,7 @@
   }
 }
 
-#inner-13 {
+#consonant-13 {
 
   .upper-right,
   .lower-left,
@@ -172,7 +172,7 @@
   }
 }
 
-#inner-14 {
+#consonant-14 {
 
   .lower-left,
   .lower-right {
@@ -180,7 +180,7 @@
   }
 }
 
-#inner-15 {
+#consonant-15 {
 
   .upper-left,
   .upper-right {
@@ -188,7 +188,7 @@
   }
 }
 
-#inner-16 {
+#consonant-16 {
 
   .upper-left,
   .lower-right {
@@ -196,7 +196,7 @@
   }
 }
 
-#inner-17 {
+#consonant-17 {
 
   .upper-right,
   .lower-left {
@@ -204,14 +204,14 @@
   }
 }
 
-#inner-18 {
+#consonant-18 {
 
   .upper-middle {
     display: none;
   }
 }
 
-#inner-19 {
+#consonant-19 {
 
 
   .lower-middle {
@@ -219,7 +219,7 @@
   }
 }
 
-#inner-20 {
+#consonant-20 {
 
   .upper-left,
   .upper-right,
@@ -228,7 +228,7 @@
   }
 }
 
-#inner-21 {
+#consonant-21 {
 
   .upper-left,
   .lower-left,
@@ -237,7 +237,7 @@
   }
 }
 
-#inner-22 {
+#consonant-22 {
 
   .upper-right,
   .lower-left,
@@ -246,7 +246,7 @@
   }
 }
 
-#inner-23 {
+#consonant-23 {
 
   .upper-middle,
   .center,
@@ -257,7 +257,7 @@
   }
 }
 
-#inner-24 {
+#consonant-24 {
 
   .upper-left,
   .upper-right,

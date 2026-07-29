@@ -1,149 +1,149 @@
-#outer-1.rune::after {
+#vowel-1.rune::after {
   content: 'æ';
 }
 
-#outer-2.rune::after {
+#vowel-2.rune::after {
   content: 'o';
 }
 
-#outer-3.rune::after {
+#vowel-3.rune::after {
   content: 'ei';
 }
 
-#outer-4.rune::after {
+#vowel-4.rune::after {
   content: 'e';
 }
-#outer-5.rune::after {
+#vowel-5.rune::after {
   content: 'uh';
 }
 
-#outer-6.rune::after {
+#vowel-6.rune::after {
   content: 'ua';
 }
 
-#outer-7.rune::after {
+#vowel-7.rune::after {
   content: 'i';
 }
 
-#outer-8.rune::after {
+#vowel-8.rune::after {
   content: 'iu';
 }
 
-#outer-9.rune::after {
+#vowel-9.rune::after {
   content: 'er';
 }
 
-#outer-10.rune::after {
+#vowel-10.rune::after {
   content: 'uo';
 }
 
-#outer-11.rune::after {
+#vowel-11.rune::after {
   content: 'ar';
 }
 
-#outer-12.rune::after {
+#vowel-12.rune::after {
   content: 'i?';
 }
 
-#outer-13.rune::after {
+#vowel-13.rune::after {
   content: 'ei';
 }
 
-#outer-14.rune::after {
+#vowel-14.rune::after {
   content: 'ai';
 }
 
-#outer-16.rune::after {
+#vowel-16.rune::after {
   content: 'ao';
 }
 
-#outer-17.rune::after {
+#vowel-17.rune::after {
   content: 'ou?';
 }
 
-#outer-18.rune::after {
+#vowel-18.rune::after {
   content: 'uer';
 }
 
-#inner-1.rune::after {
+#consonant-1.rune::after {
   content: 'm';
 }
 
-#inner-2.rune::after {
+#consonant-2.rune::after {
   content: 'n';
 }
 
-#inner-3.rune::after {
+#consonant-3.rune::after {
   content: 'ng';
 }
 
-#inner-4.rune::after {
+#consonant-4.rune::after {
   content: 'p';
 }
 
-#inner-5.rune::after {
+#consonant-5.rune::after {
   content: 'v';
 }
 
-#inner-6.rune::after {
+#consonant-6.rune::after {
   content: 'rh/t';
 }
 
-#inner-7.rune::after {
+#consonant-7.rune::after {
   content: 'dh';
 }
 
-#inner-8.rune::after {
+#consonant-8.rune::after {
   content: 'k';
 }
 
-#inner-9.rune::after {
+#consonant-9.rune::after {
   content: 'gh';
 }
-#inner-11.rune::after {
+#consonant-11.rune::after {
   content: 'rh';
 }
 
-#inner-12.rune::after {
+#consonant-12.rune::after {
   content: 'f';
 }
 
-#inner-14.rune::after {
+#consonant-14.rune::after {
   content: 't';
 }
 
-#inner-15.rune::after {
+#consonant-15.rune::after {
   content: 'th/k?';
 }
 
-#inner-16.rune::after {
+#consonant-16.rune::after {
   content: 's';
 }
 
-#inner-17.rune::after {
+#consonant-17.rune::after {
   content: 'v?/rd?/s?';
 }
 
-#inner-18.rune::after {
+#consonant-18.rune::after {
   content: 'sh';
 }
 
-#inner-20.rune::after {
+#consonant-20.rune::after {
   content: 'j?';
 }
 
-#inner-21.rune::after {
+#consonant-21.rune::after {
   content: 'r';
 }
 
-#inner-22.rune::after {
+#consonant-22.rune::after {
   content: 'll';
 }
 
-#inner-23.rune::after {
+#consonant-23.rune::after {
   content: 'g?';
 }
 
-#inner-24.rune::after {
+#consonant-24.rune::after {
   content: 'l';
 }
