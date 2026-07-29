@@ -1,0 +1,25 @@
+{
+  "name": "tunic-decoder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisAzcuaga/tunic-decoder.git"
+  },
+  "author": "Luis Azcuaga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisAzcuaga/tunic-decoder/issues"
+  },
+  "homepage": "https://github.com/luisAzcuaga/tunic-decoder#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0"
+  }
+}
