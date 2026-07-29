@@ -122,12 +122,12 @@ body {
   opacity: 0 !important;
 }
 
-.rune-chunk-container {
+.rune-section-container {
   height: 33.3px;
   position: relative;
 }
 
-.rune-middle-chunk-container {
+.rune-middle-section-container {
   display: flex;
   justify-content: space-between;
   height: 33.3px;

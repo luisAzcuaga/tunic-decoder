@@ -55,7 +55,7 @@ function mergeRunes(clonedRune) {
 
   // This block adds the horizontal strike through segment.
   const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
-  clonedRune.querySelector('.rune-middle-chunk-container')
+  clonedRune.querySelector('.rune-middle-section-container')
     .insertAdjacentHTML('beforeend', horizontalRuler);
 };
 
