@@ -22,13 +22,13 @@ function setupMeaningSwapListener() {
 };
 
 function setupRunesListeners() {
-  document.querySelectorAll('.rune').forEach(function (rune) {
-    rune.addEventListener('click', function (event) {
-      const currentRuneMeaning = window.getComputedStyle(rune, '::after')
+  document.querySelectorAll('.rune').forEach(function (currentRune) {
+    currentRune.addEventListener('click', function () {
+      const currentRuneMeaning = window.getComputedStyle(currentRune, '::after')
         .getPropertyValue('content').replace(/"/g, '');
       if (currentRuneMeaning === '...') return;
 
-      if (rune.parentElement.id === lastClickedRune?.parentElement?.id || runesClicked >= 2) {
+      if (currentRune.parentElement.id === lastClickedRune?.parentElement?.id || runesClicked >= 2) {
         // replaces if the new selection is from the same container.
         document.getElementById('rune-meaning').innerHTML = currentRuneMeaning;
         document.getElementById('combined-runes').innerHTML = '';
@@ -37,7 +37,7 @@ function setupRunesListeners() {
         // append to inner html if the rune is from a different container
         // vowels go first
         const formerMeaning = document.getElementById('rune-meaning').innerHTML;
-        if (rune.parentElement.id === 'consonants-container') {
+        if (currentRune.parentElement.id === 'consonants-container') {
           // If consonant is selected after a vowel, prepend the consonant.
           document.getElementById('rune-meaning').innerHTML = currentRuneMeaning +
             formerMeaning;
@@ -46,8 +46,8 @@ function setupRunesListeners() {
           document.getElementById('rune-meaning').innerHTML += currentRuneMeaning;
         }
       }
-      lastClickedRune = rune;
-      if (rune.parentElement.id === 'vowels-container') {
+      lastClickedRune = currentRune;
+      if (currentRune.id.startsWith('vowel-')) {
         vowelMeaning = currentRuneMeaning;
       } else {
         consonantMeaning = currentRuneMeaning;
