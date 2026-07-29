@@ -21,18 +21,25 @@ function setupMeaningSwapListener() {
   });
 };
 
+const getRuneMeaning = (rune) =>
+  window.getComputedStyle(rune, '::after')
+    .getPropertyValue('content').replace(/"/g, '')
+
+const resetAndReplaceWith = (runeMeaning) => {
+  // replaces if the new selection is from the same container.
+  document.getElementById('rune-meaning').innerHTML = runeMeaning;
+  document.getElementById('combined-runes').innerHTML = '';
+  runesClicked = 0;
+}
+
 function setupRunesListeners() {
   document.querySelectorAll('.rune').forEach(function (currentRune) {
     currentRune.addEventListener('click', function () {
-      const currentRuneMeaning = window.getComputedStyle(currentRune, '::after')
-        .getPropertyValue('content').replace(/"/g, '');
+      const currentRuneMeaning = getRuneMeaning(currentRune);
       if (currentRuneMeaning === '...') return;
 
       if (currentRune.parentElement.id === lastClickedRune?.parentElement?.id || runesClicked >= 2) {
-        // replaces if the new selection is from the same container.
-        document.getElementById('rune-meaning').innerHTML = currentRuneMeaning;
-        document.getElementById('combined-runes').innerHTML = '';
-        runesClicked = 0;
+        resetAndReplaceWith(currentRuneMeaning);
       } else {
         // append to inner html if the rune is from a different container
         // vowels go first
