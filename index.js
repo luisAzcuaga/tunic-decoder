@@ -30,20 +30,9 @@ const resetAndReplaceWith = (runeMeaning) => {
   // runesClicked = 0;
 }
 
-function mergeRunes(clonedRune) {
-  clonedRune.style.position = 'absolute';
-  const clonedRuneBaseId = clonedRune.id.replace(/\d+/g, '');
-  const lastSelectedOfSameType = document.getElementById('resulting-runes')
-    .querySelector(`[id^="${clonedRuneBaseId}"]`)
-  // replace if there is already a rune of the same parent
-  if (lastSelectedOfSameType) {
-    lastSelectedOfSameType.replaceWith(clonedRune);
-  } else {
-    document.getElementById('resulting-runes').appendChild(clonedRune);
-  }
-
-  // in this next section we shorten middle left or middle center segments.
-  // We always skip middle-right because is never usen by any rune.
+const shortenRune = (clonedRune) => {
+  // This function shortens the middle left/center segments.
+  // We always skip middle-right because no rune has it :)
   const middleCenterSegment = clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center');
   // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
   middleCenterSegment?.classList.add('shortened');
@@ -56,6 +45,21 @@ function mergeRunes(clonedRune) {
     middleLeftClonnedSegment.classList.add('shortened-tip');
     middleLeftSegment.parentElement.appendChild(middleLeftClonnedSegment);
   }
+};
+
+function mergeRunes(clonedRune) {
+  clonedRune.style.position = 'absolute';
+  const clonedRuneBaseId = clonedRune.id.replace(/\d+/g, '');
+  const lastSelectedOfSameType = document.getElementById('resulting-runes')
+    .querySelector(`[id^="${clonedRuneBaseId}"]`)
+  // replace if there is already a rune of the same parent
+  if (lastSelectedOfSameType) {
+    lastSelectedOfSameType.replaceWith(clonedRune);
+  } else {
+    document.getElementById('resulting-runes').appendChild(clonedRune);
+  }
+
+  shortenRune(clonedRune);
 
   // This block adds the horizontal strike through segment.
   const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
