@@ -21,15 +21,6 @@
   left: 0;
 }
 
-[id^="vowel-"].rune .rune-segment.middle-right {
-  /* it's never used though */
-  height: calc(33.3px + 16.666px + 16.666px);
-  width: 1px;
-  top: -50%;
-  right: 0;
-}
-
-
 
 [id^="vowel-"].rune .rune-segment.lower-left {
   height: 1px;
@@ -49,7 +40,6 @@
 
 #vowel-1 {
 
-  .middle-right,
   .lower-left,
   .lower-right {
     display: none;
@@ -59,7 +49,6 @@
 #vowel-2 {
 
   .upper-right,
-  .middle-right,
   .lower-left,
   .lower-right {
     display: none;
@@ -70,8 +59,7 @@
 
   .upper-left,
   .upper-right,
-  .middle-left,
-  .middle-right {
+  .middle-left {
     display: none;
   }
 }
@@ -79,8 +67,7 @@
 #vowel-4 {
 
   .upper-left,
-  .upper-right,
-  .middle-right {
+  .upper-right {
     display: none;
   }
 }
@@ -89,7 +76,6 @@
 
   .upper-left,
   .upper-right,
-  .middle-right,
   .lower-right {
     display: none;
   }
@@ -98,7 +84,6 @@
 #vowel-6 {
 
   .middle-left,
-  .middle-right,
   .lower-left,
   .lower-right {
     display: none;
@@ -108,15 +93,13 @@
 
 #vowel-7 {
 
-  .upper-right,
-  .middle-right {
+  .upper-right {
     display: none;
   }
 }
 
 #vowel-8 {
 
-  .middle-right,
   .lower-right {
     display: none;
   }
@@ -125,15 +108,13 @@
 
 #vowel-9 {
 
-  .upper-left,
-  .middle-right {
+  .upper-left {
     display: none;
   }
 }
 
 #vowel-10 {
 
-  .middle-right,
   .lower-left {
     display: none;
   }
@@ -141,8 +122,7 @@
 
 #vowel-11 {
 
-  .middle-left,
-  .middle-right {
+  .middle-left {
     display: none;
   }
 }
@@ -150,7 +130,6 @@
 #vowel-12 {
 
   .upper-right,
-  .middle-right,
   .lower-left {
     display: none;
   }
@@ -160,7 +139,6 @@
 
   .upper-right,
   .middle-left,
-  .middle-right,
   .lower-left,
   .lower-right {
     display: none;
@@ -171,7 +149,6 @@
 
   .upper-left,
   .middle-left,
-  .middle-right,
   .lower-left,
   .lower-right {
     display: none;
@@ -183,7 +160,6 @@
   .upper-left,
   .upper-right,
   .middle-left,
-  .middle-right,
   .lower-right {
     display: none;
   }
@@ -194,24 +170,17 @@
   .upper-left,
   .upper-right,
   .middle-left,
-  .middle-right,
   .lower-left {
     display: none;
   }
 }
 
-#vowel-17 {
-
-  .middle-right {
-    display: none;
-  }
-}
+/* #vowel-17 displays all segments */
 
 #vowel-18 {
 
   .upper-left,
   .upper-right,
-  .middle-right,
   .lower-left {
     display: none;
   }
