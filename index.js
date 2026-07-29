@@ -6,6 +6,10 @@ let consonantMeaning = '';
 
 document.addEventListener('DOMContentLoaded', function () {
   setupRunesListeners();
+  setupMeaningSwapListener();
+});
+
+function setupMeaningSwapListener() {
   document.getElementById('rune-meaning').addEventListener('click', function () {
     // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
     const currentMeaning = document.getElementById('rune-meaning').innerHTML;
@@ -14,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
     }
-
   });
-});
+};
 
 function setupRunesListeners() {
   document.querySelectorAll('.rune').forEach(function (rune) {
