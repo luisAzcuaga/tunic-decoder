@@ -46,26 +46,25 @@ function setupRunesListeners() {
           document.getElementById('rune-meaning').innerHTML += currentRuneMeaning;
         }
       }
-      lastClickedRune = currentRune;
       if (currentRune.id.startsWith('vowel-')) {
         vowelMeaning = currentRuneMeaning;
       } else {
         consonantMeaning = currentRuneMeaning;
       }
       runesClicked++;
-      const clonedRune = lastClickedRune.cloneNode(true);
+      const clonedRune = currentRune.cloneNode(true);
+      lastClickedRune = currentRune;
 
-      const clonedContainer = lastClickedRune.parentElement.cloneNode(false);
-      clonedContainer.style.position = 'absolute';
-      clonedContainer.appendChild(clonedRune);
-
+      clonedRune.style.position = 'absolute';
       document.getElementById('combined-runes')
-        .appendChild(clonedContainer);
+        .appendChild(clonedRune);
 
-      // shorten rune-segment center to height: 16.666px;
+      // does the selected rune has a center segment? if so, let's shorten it.
       if (clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center')) {
         clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.center').style.height = '16.666px';
       }
+
+      // does the selectred rune has a left segment? if so, let's split it in two, so it's looks striken through.
       const leftSegment = clonedRune.querySelector('.rune-middle-chunk-container .rune-segment.middle-left');
       if (leftSegment) {
         const clonedLeft = leftSegment.cloneNode(false);
