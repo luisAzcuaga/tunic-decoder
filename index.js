@@ -1,6 +1,7 @@
 const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
 let vowelMeaning = '';
 let consonantMeaning = '';
+let inverted = false;
 
 document.addEventListener('DOMContentLoaded', function () {
   setupRunesListeners();
@@ -10,11 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
 function setupMeaningSwapListener() {
   document.getElementById('rune-meaning').addEventListener('click', function () {
     // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
-    const currentMeaning = document.getElementById('rune-meaning').innerHTML;
-    if (currentMeaning === vowelMeaning + consonantMeaning) {
+    if (vowelMeaning === '' || consonantMeaning === '') return;
+
+    if (inverted) {
       document.getElementById('rune-meaning').innerHTML = consonantMeaning + vowelMeaning;
+      document.getElementById('invert-indicator').classList.add('display-none');
+      inverted = !inverted;
     } else {
       document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
+      document.getElementById('invert-indicator').classList.remove('display-none');
+      inverted = !inverted;
     }
   });
 };
@@ -23,21 +29,16 @@ const getRuneMeaning = (rune) =>
   window.getComputedStyle(rune, '::after')
     .getPropertyValue('content').replace(/"/g, '')
 
-const resetAndReplaceWith = (runeMeaning) => {
-  // replaces if the new selection is from the same container.
-  document.getElementById('rune-meaning').innerHTML = runeMeaning;
-  document.getElementById('resulting-runes').innerHTML = '';
-  // runesClicked = 0;
-}
-
 const shortenRune = (clonedRune) => {
   // This function shortens the middle left/center segments.
   // We always skip middle-right because no rune has it :)
   const middleCenterSegment = clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center');
-  // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
+  // The selected rune is a consonant with a middle-center segment?
+  // If so, let's shorten it.
   middleCenterSegment?.classList.add('shortened');
 
-  // The selectred rune is a vowel with a middle-left segment? if so, let's split it in two, so it's looks striken through.
+  // The selected rune is a vowel with a middle-left segment? 
+  // If so, let's split it in two, so it's looks striken through.
   const middleLeftSegment = clonedRune.querySelector('[id^=vowel-] .rune-segment.middle-left');
   if (middleLeftSegment) {
     const middleLeftClonnedSegment = middleLeftSegment.cloneNode(false);
@@ -66,28 +67,25 @@ function mergeRunes(clonedRune) {
     .insertAdjacentHTML('beforeend', horizontalRuler);
 };
 
+function mergeMeanings(currentRune, currentRuneMeaning) {
+  if (currentRune.id.startsWith('vowel')) {
+    vowelMeaning = currentRuneMeaning
+  }
+  else {
+    consonantMeaning = currentRuneMeaning
+  }
+  const vowelFirst = vowelMeaning + consonantMeaning;
+  const consonantFirst = consonantMeaning + vowelMeaning;
+  document.getElementById('rune-meaning').innerHTML = inverted ? vowelFirst : consonantFirst;
+}
+
 function setupRunesListeners() {
   document.querySelectorAll('.rune').forEach(function (currentRune) {
     currentRune.addEventListener('click', function () {
       const currentRuneMeaning = getRuneMeaning(currentRune);
       if (currentRuneMeaning === '...') return;
 
-      // append to inner html if the rune is from a different container
-      // vowels go first
-      const formerMeaning = document.getElementById('rune-meaning').innerHTML;
-      if (currentRune.parentElement.id === 'consonants-container') {
-        // If consonant is selected after a vowel, prepend the consonant.
-        document.getElementById('rune-meaning').innerHTML = currentRuneMeaning +
-          formerMeaning;
-      } else {
-        // If vowel is selected after, simply append.
-        document.getElementById('rune-meaning').innerHTML += currentRuneMeaning;
-      }
-      if (currentRune.id.startsWith('vowel-')) {
-        vowelMeaning = currentRuneMeaning;
-      } else {
-        consonantMeaning = currentRuneMeaning;
-      }
+      mergeMeanings(currentRune, currentRuneMeaning);
       mergeRunes(currentRune.cloneNode(true));
     });
   });

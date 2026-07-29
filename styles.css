@@ -140,3 +140,18 @@ body {
   display: block;
   position: absolute;
 }
+
+#invert-indicator {
+  position: absolute;
+  height: 5px !important;
+  width: 5px !important;
+  left: 50%;
+  bottom: -10%;
+  border-radius: 100%;
+  translate: -50% 100%;
+
+}
+
+.display-none {
+  display: none;
+}
