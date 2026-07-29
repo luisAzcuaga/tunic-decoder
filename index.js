@@ -46,10 +46,9 @@ function mergeRunes(clonedRune) {
 
   // in this next section we shorten middle left or middle center segments.
   // We always skip middle-right because is never usen by any rune.
-  if (clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center')) {
-    // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
-    clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center').classList.add('shortened');
-  }
+  const middleCenterSegment = clonedRune.querySelector('[id^=consonant-] .rune-segment.middle-center');
+  // The selected rune is a consonant with a middle-center segment? if so, let's shorten it.
+  middleCenterSegment?.classList.add('shortened');
 
   // The selectred rune is a vowel with a middle-left segment? if so, let's split it in two, so it's looks striken through.
   const middleLeftSegment = clonedRune.querySelector('[id^=vowel-] .rune-segment.middle-left');
