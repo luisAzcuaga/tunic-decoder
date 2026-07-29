@@ -13,6 +13,9 @@
 #outer-4.rune::after {
   content: 'e';
 }
+#outer-5.rune::after {
+  content: 'uh';
+}
 
 #outer-6.rune::after {
   content: 'ua';
@@ -87,7 +90,7 @@
 }
 
 #inner-7.rune::after {
-  content: 'rd';
+  content: 'dh';
 }
 
 #inner-8.rune::after {
@@ -96,6 +99,9 @@
 
 #inner-9.rune::after {
   content: 'gh';
+}
+#inner-11.rune::after {
+  content: 'rh';
 }
 
 #inner-12.rune::after {
