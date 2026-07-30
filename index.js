@@ -1,26 +1,53 @@
 const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
-let vowelMeaning = '';
-let consonantMeaning = '';
-let inverted = false;
+let vowelMeanings = [];
+let consonantMeanings = [];
+let inverted = [];
 
 document.addEventListener('DOMContentLoaded', function () {
   setupRunesListeners();
   setupMeaningSwapListener();
+  setupAddRuneListener();
 });
 
-function setupMeaningSwapListener() {
-  document.getElementById('rune-meaning').addEventListener('click', function () {
-    // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
-    if (vowelMeaning === '' || consonantMeaning === '') return;
+const lastSelectionId = () => document.getElementById('rune-selection-container')
+  .querySelectorAll('[id^="selection-"]').length;
 
-    if (inverted) {
-      document.getElementById('rune-meaning').innerHTML = consonantMeaning + vowelMeaning;
-      document.getElementById('invert-indicator').classList.add('display-none');
-      inverted = !inverted;
+const nextSelectionId = () => lastSelectionId() + 1;
+
+function setupAddRuneListener() {
+  document.getElementById('add-rune').addEventListener('click', function (event) {
+    const nextId = nextSelectionId();
+    document.getElementById('rune-selection-container').childElementCount;
+    const nextSibling = document.getElementById('rune-selection-container').firstElementChild.cloneNode(true);
+    nextSibling.id = `selection-${nextId}`;
+    nextSibling.querySelector('.rune-meaning').textContent = '';
+    nextSibling.querySelectorAll('.rune').forEach(rune => rune.remove());
+    nextSibling.querySelector('.invert-indicator').classList.add('display-none');
+
+    document.getElementById('rune-selection-container').insertBefore(nextSibling, event.target);
+
+    setupMeaningSwapListener(nextSibling);
+  });
+};
+
+function setupMeaningSwapListener(currentSelection = document.getElementById('selection-1')) {
+  currentSelection.querySelector('.rune-meaning').addEventListener('click', function () {
+    const clickedIndex = Number(currentSelection.id.replace('selection-', '')) - 1;
+    inverted[clickedIndex] ??= false;
+    // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
+    if (
+      vowelMeanings[clickedIndex] === undefined ||
+      consonantMeanings[clickedIndex] === undefined
+    ) return;
+
+    if (inverted[clickedIndex]) {
+      currentSelection.querySelector('.rune-meaning').innerHTML = consonantMeanings[clickedIndex] + vowelMeanings[clickedIndex];
+      currentSelection.querySelector('.invert-indicator').classList.add('display-none');
+       inverted[clickedIndex] = false;
     } else {
-      document.getElementById('rune-meaning').innerHTML = vowelMeaning + consonantMeaning;
-      document.getElementById('invert-indicator').classList.remove('display-none');
-      inverted = !inverted;
+      currentSelection.querySelector('.rune-meaning').innerHTML = vowelMeanings[clickedIndex] + consonantMeanings[clickedIndex];
+      currentSelection.querySelector('.invert-indicator').classList.remove('display-none');
+      inverted[clickedIndex] = true;
     }
   });
 };
@@ -51,13 +78,14 @@ const shortenRune = (clonedRune) => {
 function mergeRunes(clonedRune) {
   clonedRune.style.position = 'absolute';
   const clonedRuneBaseId = clonedRune.id.replace(/\d+/g, '');
-  const lastSelectedOfSameType = document.getElementById('resulting-runes')
+  const lastSelectedOfSameType = document.querySelector(`#selection-${lastSelectionId()} .resulting-runes`)
     .querySelector(`[id^="${clonedRuneBaseId}"]`)
   // replace if there is already a rune of the same parent
   if (lastSelectedOfSameType) {
     lastSelectedOfSameType.replaceWith(clonedRune);
   } else {
-    document.getElementById('resulting-runes').appendChild(clonedRune);
+    document.querySelector(`#selection-${lastSelectionId()} .resulting-runes`)
+      .appendChild(clonedRune);
   }
 
   shortenRune(clonedRune);
@@ -69,14 +97,14 @@ function mergeRunes(clonedRune) {
 
 function mergeMeanings(currentRune, currentRuneMeaning) {
   if (currentRune.id.startsWith('vowel')) {
-    vowelMeaning = currentRuneMeaning
+    vowelMeanings[lastSelectionId() - 1] = currentRuneMeaning;
   }
   else {
-    consonantMeaning = currentRuneMeaning
+    consonantMeanings[lastSelectionId() - 1] = currentRuneMeaning;
   }
-  const vowelFirst = vowelMeaning + consonantMeaning;
-  const consonantFirst = consonantMeaning + vowelMeaning;
-  document.getElementById('rune-meaning').innerHTML = inverted ? vowelFirst : consonantFirst;
+  const vowelFirst = (vowelMeanings[lastSelectionId() - 1] || '') + (consonantMeanings[lastSelectionId() - 1] || '');
+  const consonantFirst = (consonantMeanings[lastSelectionId() - 1] || '') + (vowelMeanings[lastSelectionId() - 1] || '');
+  document.querySelector(`#selection-${lastSelectionId()} .rune-meaning`).innerHTML = inverted[lastSelectionId() - 1] ? vowelFirst : consonantFirst;
 }
 
 function setupRunesListeners() {
