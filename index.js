@@ -1,4 +1,3 @@
-const horizontalRuler = `<span class="rune-segment middle-center" style="height: 1px !important; width: 50px; left: 0; bottom: 50%;"></span>`;
 let vowelMeanings = [];
 let consonantMeanings = [];
 let inverted = [];
@@ -20,10 +19,10 @@ function setupAddRuneListener() {
     document.getElementById('rune-selection-container').childElementCount;
     const nextSibling = document.getElementById('rune-selection-container').firstElementChild.cloneNode(true);
     nextSibling.id = `selection-${nextId}`;
-    nextSibling.querySelector('.rune-meaning').textContent = '';
+    nextSibling.querySelector('.merged-meaning').textContent = '';
     nextSibling.querySelectorAll('.rune').forEach(rune => rune.remove());
     nextSibling.querySelector('.invert-indicator').classList.add('display-none');
-
+    nextSibling.querySelector('.word-delimiter').classList.add('display-none');
     document.getElementById('rune-selection-container').insertBefore(nextSibling, event.target);
 
     setupMeaningSwapListener(nextSibling);
@@ -31,7 +30,7 @@ function setupAddRuneListener() {
 };
 
 function setupMeaningSwapListener(currentSelection = document.getElementById('selection-1')) {
-  currentSelection.querySelector('.rune-meaning').addEventListener('click', function () {
+  currentSelection.addEventListener('click', function () {
     const clickedIndex = Number(currentSelection.id.replace('selection-', '')) - 1;
     inverted[clickedIndex] ??= false;
     // when meaning is clicked, the meanings are swapped, vowel and consonant and vice-versa.
@@ -41,11 +40,13 @@ function setupMeaningSwapListener(currentSelection = document.getElementById('se
     ) return;
 
     if (inverted[clickedIndex]) {
-      currentSelection.querySelector('.rune-meaning').innerHTML = consonantMeanings[clickedIndex] + vowelMeanings[clickedIndex];
+      currentSelection.querySelector('.merged-meaning')
+        .innerHTML = consonantMeanings[clickedIndex] + vowelMeanings[clickedIndex];
       currentSelection.querySelector('.invert-indicator').classList.add('display-none');
-       inverted[clickedIndex] = false;
+      inverted[clickedIndex] = false;
     } else {
-      currentSelection.querySelector('.rune-meaning').innerHTML = vowelMeanings[clickedIndex] + consonantMeanings[clickedIndex];
+      currentSelection.querySelector('.merged-meaning')
+        .innerHTML = vowelMeanings[clickedIndex] + consonantMeanings[clickedIndex];
       currentSelection.querySelector('.invert-indicator').classList.remove('display-none');
       inverted[clickedIndex] = true;
     }
@@ -91,8 +92,7 @@ function mergeRunes(clonedRune) {
   shortenRune(clonedRune);
 
   // This block adds the horizontal strike through segment.
-  clonedRune.querySelector('.rune-middle-section-container')
-    .insertAdjacentHTML('beforeend', horizontalRuler);
+  clonedRune.parentElement.querySelector('.word-delimiter').classList.remove('display-none');
 };
 
 function mergeMeanings(currentRune, currentRuneMeaning) {
@@ -104,7 +104,7 @@ function mergeMeanings(currentRune, currentRuneMeaning) {
   }
   const vowelFirst = (vowelMeanings[lastSelectionId() - 1] || '') + (consonantMeanings[lastSelectionId() - 1] || '');
   const consonantFirst = (consonantMeanings[lastSelectionId() - 1] || '') + (vowelMeanings[lastSelectionId() - 1] || '');
-  document.querySelector(`#selection-${lastSelectionId()} .rune-meaning`).innerHTML = inverted[lastSelectionId() - 1] ? vowelFirst : consonantFirst;
+  document.querySelector(`#selection-${lastSelectionId()} .merged-meaning`).innerHTML = inverted[lastSelectionId() - 1] ? vowelFirst : consonantFirst;
 }
 
 function setupRunesListeners() {

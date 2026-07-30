@@ -4,7 +4,7 @@ body {
 }
 
 #rune-selection-container {
-  font-size: 5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +17,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor:e-resize;
+}
+
+#add-rune, #runes-container .rune {
+  cursor: pointer;
 }
 
 .resulting-runes {
@@ -93,6 +98,9 @@ body {
   content: "CONSONANTS";
 }
 
+#runes-container .rune {
+  border: 0.1px dotted #333;
+}
 .rune {
   display: flex;
   flex-direction: column;
@@ -100,7 +108,6 @@ body {
   height: 100px;
   color: white;
   margin: 35px;
-  border: 0.1px dotted #333;
   position: relative;
 }
 
@@ -155,6 +162,13 @@ body {
   border-radius: 100%;
   translate: -50% 100%;
 
+}
+
+.word-delimiter {
+  height: 1px !important;
+  width: 50px;
+  left: 0;
+  bottom: 50%;
 }
 
 .display-none {
