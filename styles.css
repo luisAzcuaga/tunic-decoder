@@ -6,15 +6,20 @@ body {
 #rune-selection-container {
   font-size: 5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: auto;
   height: 300px;
-  width: fit-content;
   color: #505071;
 }
 
-#resulting-runes {
+#rune-selection-container [id^="selection-"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resulting-runes {
   width: fit-content;
   height: fit-content;
   position: relative;
@@ -118,7 +123,7 @@ body {
   transition: 0.3s all;
 }
 
-#resulting-runes .rune::after {
+.resulting-runes .rune::after {
   opacity: 0 !important;
 }
 
@@ -141,7 +146,7 @@ body {
   position: absolute;
 }
 
-#invert-indicator {
+.invert-indicator {
   position: absolute;
   height: 5px !important;
   width: 5px !important;
