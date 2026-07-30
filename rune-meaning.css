@@ -113,7 +113,7 @@
 }
 
 #consonant-15.rune::after {
-  content: 'th/k?';
+  content: 'th';
 }
 
 #consonant-16.rune::after {
@@ -121,7 +121,7 @@
 }
 
 #consonant-17.rune::after {
-  content: 'v?/rd?/s?';
+  content: 'z';
 }
 
 #consonant-18.rune::after {
@@ -129,7 +129,7 @@
 }
 
 #consonant-20.rune::after {
-  content: 'j?';
+  content: 'j';
 }
 
 #consonant-21.rune::after {
