@@ -14,9 +14,24 @@ const lastSelectionId = () => document.getElementById('rune-selection-container'
 
 const nextSelectionId = () => lastSelectionId() + 1;
 
-const setupRemoveRuneListener = () => {
-  document.getElementById('remove-rune').addEventListener('click', function () {
-    if (lastSelectionId() === 1) return;
+function resetSelectionOne() {
+  const selectionOne = document.getElementById('selection-1')
+
+  selectionOne.querySelector('.merged-meaning').textContent = '';
+  selectionOne.querySelectorAll('.rune').forEach(rune => rune.remove());
+  selectionOne.querySelector('.invert-indicator').classList.add('display-none');
+  selectionOne.querySelector('.word-delimiter').classList.add('display-none');
+
+  vowelMeanings[0] = '';
+  consonantMeanings[0] = '';
+  inverted[0] = false;
+}
+
+function removeRune() {
+  if (lastSelectionId() === 1) {
+    resetSelectionOne();
+    return
+  };
 
   document.getElementById('rune-selection-container')
     .querySelectorAll('[id^="selection-"]')[lastSelectionId() - 1]
