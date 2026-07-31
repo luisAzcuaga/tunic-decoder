@@ -21,6 +21,9 @@ const setupRemoveRuneListener = () => {
     document.getElementById('rune-selection-container')
       .querySelectorAll('[id^="selection-"]')[lastSelectionId() - 1]
       ?.remove();
+      vowelMeanings.pop();
+      consonantMeanings.pop();
+      inverted.pop();
   })
 }
 
