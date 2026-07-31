@@ -108,6 +108,10 @@
   content: 'f';
 }
 
+#consonant-13.rune::after {
+  content: 'v';
+}
+
 #consonant-14.rune::after {
   content: 't';
 }
