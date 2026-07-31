@@ -18,28 +18,53 @@ const setupRemoveRuneListener = () => {
   document.getElementById('remove-rune').addEventListener('click', function () {
     if (lastSelectionId() === 1) return;
 
-    document.getElementById('rune-selection-container')
-      .querySelectorAll('[id^="selection-"]')[lastSelectionId() - 1]
-      ?.remove();
-      vowelMeanings.pop();
-      consonantMeanings.pop();
-      inverted.pop();
-  })
+  document.getElementById('rune-selection-container')
+    .querySelectorAll('[id^="selection-"]')[lastSelectionId() - 1]
+    ?.remove();
+  vowelMeanings.pop();
+  consonantMeanings.pop();
+  inverted.pop();
+};
+
+document.addEventListener('keydown', function () {
+  if (event.code !== 'Backspace') return;
+
+  event.preventDefault();
+  removeRune();
+});
+
+const setupRemoveRuneListener = () => {
+  document.getElementById('remove-rune')
+    .addEventListener('click', function () {
+      removeRune();
+    })
+};
+
+function addRune() {
+  const nextId = nextSelectionId();
+  document.getElementById('rune-selection-container').childElementCount;
+  const nextSibling = document.getElementById('rune-selection-container').firstElementChild.cloneNode(true);
+  nextSibling.id = `selection-${nextId}`;
+  nextSibling.querySelector('.merged-meaning').textContent = '';
+  nextSibling.querySelectorAll('.rune').forEach(rune => rune.remove());
+  nextSibling.querySelector('.invert-indicator').classList.add('display-none');
+  nextSibling.querySelector('.word-delimiter').classList.add('display-none');
+  document.getElementById('rune-selection-container')
+    .insertBefore(nextSibling, document.querySelector('.controls'));
+
+  setupMeaningSwapListener(nextSibling);
 }
 
-function setupAddRuneListener() {
-  document.getElementById('add-rune').addEventListener('click', function (event) {
-    const nextId = nextSelectionId();
-    document.getElementById('rune-selection-container').childElementCount;
-    const nextSibling = document.getElementById('rune-selection-container').firstElementChild.cloneNode(true);
-    nextSibling.id = `selection-${nextId}`;
-    nextSibling.querySelector('.merged-meaning').textContent = '';
-    nextSibling.querySelectorAll('.rune').forEach(rune => rune.remove());
-    nextSibling.querySelector('.invert-indicator').classList.add('display-none');
-    nextSibling.querySelector('.word-delimiter').classList.add('display-none');
-    document.getElementById('rune-selection-container').insertBefore(nextSibling, event.target.parentElement);
+document.addEventListener('keydown', function () {
+  if (event.code !== 'Space') return;
 
-    setupMeaningSwapListener(nextSibling);
+  event.preventDefault();
+  addRune();
+});
+
+function setupAddRuneListener() {
+  document.getElementById('add-rune').addEventListener('click', function () {
+    addRune();
   });
 };
 
