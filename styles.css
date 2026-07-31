@@ -11,6 +11,7 @@ body {
   margin: auto;
   height: 300px;
   color: #505071;
+  overflow: scroll;
 }
 
 #rune-selection-container [id^="selection-"] {
