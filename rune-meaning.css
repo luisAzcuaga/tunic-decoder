@@ -1,5 +1,5 @@
 #vowel-1.rune::after {
-  content: 'æ';
+  content: 'ə';
 }
 
 #vowel-2.rune::after {
@@ -82,7 +82,7 @@
 }
 
 #consonant-5.rune::after {
-  content: 'v';
+  content: 'b';
 }
 
 #consonant-6.rune::after {
@@ -101,7 +101,7 @@
   content: 'gh';
 }
 #consonant-11.rune::after {
-  content: 'rh';
+  content: 'ch';
 }
 
 #consonant-12.rune::after {
