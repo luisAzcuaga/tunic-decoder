@@ -6,12 +6,23 @@ document.addEventListener('DOMContentLoaded', function () {
   setupRunesListeners();
   setupMeaningSwapListener();
   setupAddRuneListener();
+  setupRemoveRuneListener();
 });
 
 const lastSelectionId = () => document.getElementById('rune-selection-container')
   .querySelectorAll('[id^="selection-"]').length;
 
 const nextSelectionId = () => lastSelectionId() + 1;
+
+const setupRemoveRuneListener = () => {
+  document.getElementById('remove-rune').addEventListener('click', function () {
+    if (lastSelectionId() === 1) return;
+
+    document.getElementById('rune-selection-container')
+      .querySelectorAll('[id^="selection-"]')[lastSelectionId() - 1]
+      ?.remove();
+  })
+}
 
 function setupAddRuneListener() {
   document.getElementById('add-rune').addEventListener('click', function (event) {
@@ -23,7 +34,7 @@ function setupAddRuneListener() {
     nextSibling.querySelectorAll('.rune').forEach(rune => rune.remove());
     nextSibling.querySelector('.invert-indicator').classList.add('display-none');
     nextSibling.querySelector('.word-delimiter').classList.add('display-none');
-    document.getElementById('rune-selection-container').insertBefore(nextSibling, event.target);
+    document.getElementById('rune-selection-container').insertBefore(nextSibling, event.target.parentElement);
 
     setupMeaningSwapListener(nextSibling);
   });
