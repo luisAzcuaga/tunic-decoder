@@ -7,7 +7,7 @@
 }
 
 #vowel-3.rune::after {
-  content: 'ei';
+  content: 'ɪ';
 }
 
 #vowel-4.rune::after {
@@ -18,7 +18,7 @@
 }
 
 #vowel-6.rune::after {
-  content: 'a';
+  content: 'ʌ';
 }
 
 #vowel-7.rune::after {
@@ -145,7 +145,7 @@
 }
 
 #consonant-23.rune::after {
-  content: 'g?';
+  content: 'w';
 }
 
 #consonant-24.rune::after {
