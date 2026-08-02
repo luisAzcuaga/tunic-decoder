@@ -13,6 +13,7 @@
 #vowel-4.rune::after {
   content: 'e';
 }
+
 #vowel-5.rune::after {
   content: 'uh';
 }
@@ -42,7 +43,7 @@
 }
 
 #vowel-12.rune::after {
-  content: 'i?';
+  content: 'ɪr';
 }
 
 #vowel-13.rune::after {
@@ -100,6 +101,11 @@
 #consonant-9.rune::after {
   content: 'gh';
 }
+
+#consonant-10.rune::after {
+  content: 'lll';
+}
+
 #consonant-11.rune::after {
   content: 'ch';
 }
